@@ -1,0 +1,22 @@
+
+<div class="col-md-12">
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <td>#</td>
+        <td>Title</td>
+        <td>Description</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @works.each do |work| %>
+        <tr>
+          <td>#</td>
+          <td><%= work.title %></td>
+          <td><%= work.description %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

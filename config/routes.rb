@@ -5,5 +5,5 @@ Rails.application.routes.draw do
     resources :works
   end
 
-  root "welcome#index"
+  root "works#index"
 end
