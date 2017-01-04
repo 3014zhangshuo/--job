@@ -10,6 +10,12 @@ devise_for :users, :controllers => { :registrations => "registrations" }
     resources :works
   end
 
+  resources :notifications do
+    member do
+      get :redirect_notification
+    end
+  end
+
   namespace :admin do
     resources :works do
       member do
