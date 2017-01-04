@@ -18,4 +18,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+
+  +#创建notifications方法
+ def send_notification(trigger,recipient,notifiable)
+   Notification.create()
+ end
+
 end
