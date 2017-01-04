@@ -6,7 +6,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   scope :all_except, -> (user) {where.not(id: user)}
-
+  has_many :works
+  has_many :notifications
   has_many :resumes
 
   def admin?

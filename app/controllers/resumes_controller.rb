@@ -13,7 +13,7 @@ class ResumesController < ApplicationController
     @resume.user = current_user
 
     if @resume.save
-      send_notification!(current_user.id,@work.user_id,@work)
+      send_notification(current_user.id,@work.user_id,@work)
       flash[:notice] = "成功提交履历"
       redirect_to work_path(@work)
     else

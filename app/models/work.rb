@@ -6,4 +6,5 @@ class Work < ApplicationRecord
   validates :wage_lower_bound, numericality: { greater_than: 0}
   has_many :resumes
   has_many :notifications, as: :notifiable
+  belongs_to :user
 end

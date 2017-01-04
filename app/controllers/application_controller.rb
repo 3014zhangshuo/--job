@@ -18,8 +18,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  #获取当前用户的notifications
+  def get_notification
+    if current_user.present?
+      @notifications = Notification.where(:recipient_id => current_user.id).where(:read_at => nil)
+    end
+  end
 
-  +#创建notifications方法
+
+  #创建notifications方法
  def send_notification(trigger,recipient,notifiable)
    Notification.create(trigger_id: trigger,recipient_id: recipient,notifiable_id: notifiable.id,notifiable_type: notifiable.class)
  end
