@@ -26,7 +26,7 @@ before_action :authenticate_user!
     @work = Work.find(params[:id])
   end
 
-  def updata
+  def update
     @work = Work.find(params[:id])
     if @work.update(work_params)
       redirect_to company_work_path(@work)

@@ -36,7 +36,7 @@
       <% @works.each do |work| %>
         <tr>
           <td>#</td>
-          <td><%= work.title %></td>
+          <td><%= link_to work.title, work_path(work) %></td>
           <td><%= work.description %></td>
         </tr>
       <% end %>
