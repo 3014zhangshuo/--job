@@ -7,7 +7,8 @@ devise_for :users, :controllers => { :registrations => "registrations" }
   end
 
   namespace :admin do
-    resource :users, only: [:index, :show, :destroy] do
+    resources :works
+    resources :users, only: [:index, :show, :destroy] do
       member do
         post :admin
         post :user

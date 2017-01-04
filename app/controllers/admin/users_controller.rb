@@ -1,8 +1,8 @@
 class Admin::UsersController < ApplicationController
   before_filter :require_is_admin
-
+  layout "admin"
   def index
-    @users = User.all
+    @users = User.all_except(current_user)
   end
 
   def show

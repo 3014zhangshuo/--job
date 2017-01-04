@@ -1,7 +1,7 @@
 class Admin::WorksController < ApplicationController
   before_filter :require_is_admin
   before_action :authenticate_user!
-  
+  layout "admin"
   def index
     @works = Work.all
   end

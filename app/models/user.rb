@@ -5,6 +5,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  scope :all_except, -> (user) {where.not(id: user)}
+
+
   def admin?
    is_admin
   end
