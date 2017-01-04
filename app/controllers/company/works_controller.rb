@@ -15,6 +15,7 @@ before_action :authenticate_user!
 
   def create
     @work = Work.new(work_params)
+    @work.user = current_user
     if @work.save
       redirect_to company_works_path
     else
