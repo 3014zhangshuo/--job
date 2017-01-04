@@ -1,0 +1,31 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+   <table class="table table-hover">
+     <thead>
+       <tr>
+         <td>编号</td>
+         <td>职位</td>
+         <td>详细描述</td>
+       </tr>
+     </thead>
+     <tbody>
+       <% @works.each do |work| %>
+         <tr>
+           <td><%= work.id %></td>
+           <td><%= work.title %></td>
+           <td><%= work.description %></td>
+           <% if work.is_hidden %>
+              <td><%= link_to("Publish", publish_admin_work_path(work), :method => :post, :class => "btn btn-xs btn-default") %></td>
+            <% else %>
+              <td><%= link_to("Hide", hide_admin_work_path(work), :method => :post,  :class => "btn btn-xs btn-default") %></td>
+            <% end %>
+         </tr>
+       <% end %>
+     </tbody>
+   </table>
+ </div>
+</div>
+</div>

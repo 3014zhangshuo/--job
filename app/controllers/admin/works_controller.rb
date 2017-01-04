@@ -42,6 +42,20 @@ class Admin::WorksController < ApplicationController
       redirect_to company_works_path
     end
 
+    def publish
+    @work = Job.find(params[:id])
+    @work.is_hidden = false
+    @work.save
+    redirect_to :back
+  end
+
+  def hide
+    @work = Job.find(params[:id])
+    @work.is_hidden = true
+    @work.save
+    redirect_to :back
+  end
+
   private
 
   def work_params
