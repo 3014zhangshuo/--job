@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+
   def after_sign_in_path_for(resource)
       if current_user && current_user.status == "admin"
         company_works_path
@@ -9,5 +10,12 @@ class ApplicationController < ActionController::Base
        root_path
       end
     end
+
+  def require_is_admin
+    if !current_user.admin?
+      flash[:alert] = 'You are not admin'
+      redirect_to root_path
+    end
+  end
 
 end

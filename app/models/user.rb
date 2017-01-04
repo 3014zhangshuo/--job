@@ -4,4 +4,9 @@ class User < ApplicationRecord
   enum status:{ user: 0, admin: 1 }
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  def admin?
+   is_admin
+  end
+
 end
