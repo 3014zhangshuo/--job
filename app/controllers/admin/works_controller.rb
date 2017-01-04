@@ -1,6 +1,7 @@
-class Company::WorksController < ApplicationController
-before_action :authenticate_user!
-
+class Admin::WorksController < ApplicationController
+  before_filter :require_is_admin
+  before_action :authenticate_user!
+  
   def index
     @works = Work.all
   end
@@ -44,7 +45,6 @@ before_action :authenticate_user!
   private
 
   def work_params
-  params.require(:job).permit(:title, :description, :wage_upper_bound, :wage_lower_bound, :contact_email, :is_hidden)
+    params.require(:job).permit(:title, :description, :wage_upper_bound, :wage_lower_bound, :contact_email, :is_hidden)
   end
-
 end
