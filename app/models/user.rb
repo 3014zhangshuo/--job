@@ -9,4 +9,14 @@ class User < ApplicationRecord
    is_admin
   end
 
+  def admin!
+    self.is_admin = true
+    self.save
+  end
+
+  def user!
+    self.is_admin = false
+    self.save
+  end
+
 end
