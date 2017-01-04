@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
 devise_for :users, :controllers => { :registrations => "registrations" }
 
- resources :works, only: [:show, :index]
+ resources :works, only: [:show, :index] do
+   resources :resumes, only: [:new, :create]
+ end
 
   namespace :company do
     resources :works

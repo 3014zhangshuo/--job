@@ -43,14 +43,14 @@ class Admin::WorksController < ApplicationController
     end
 
     def publish
-    @work = Job.find(params[:id])
+    @work = work.find(params[:id])
     @work.is_hidden = false
     @work.save
     redirect_to :back
   end
 
   def hide
-    @work = Job.find(params[:id])
+    @work = work.find(params[:id])
     @work.is_hidden = true
     @work.save
     redirect_to :back
@@ -59,6 +59,6 @@ class Admin::WorksController < ApplicationController
   private
 
   def work_params
-    params.require(:job).permit(:title, :description, :wage_upper_bound, :wage_lower_bound, :contact_email, :is_hidden)
+    params.require(:work).permit(:title, :description, :wage_upper_bound, :wage_lower_bound, :contact_email, :is_hidden)
   end
 end
