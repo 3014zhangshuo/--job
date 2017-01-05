@@ -22,6 +22,7 @@ class Admin::AppliesController < ApplicationController
     @apply.is_pass = true
     @apply.save
     @apply.user.is_recruiter = true
+    @apply.user.status = "user"
     @apply.user.save
     @pass = @apply.user
     send_notification(current_user.id,@apply.user.id,@pass)

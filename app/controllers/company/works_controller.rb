@@ -1,5 +1,6 @@
 class Company::WorksController < ApplicationController
 before_action :authenticate_user!
+before_action :require_recruiter
 before_action :get_notification
 
   def index
