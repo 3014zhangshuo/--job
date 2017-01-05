@@ -31,8 +31,7 @@
                     <% end %>
                   <% end %>
                 </li>
-
-                   <% if can? :manage,:all %>
+                  <% if current_user &&  current_user.admin? %>
                   <li><%= link_to("超级后台", admin_users_path) %></li>
                   <% end %>
                   <% if !current_user %>

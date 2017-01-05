@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  enum status:{ user: 0, admin: 1, moderator: 2 }
+  enum status:{ user: 0, moderator: 1 }
   ROLES = {0 => :user, 1 => :admin, 2 => :moderator, 3 => :recruiter}
   attr_reader :role
   devise :database_authenticatable, :registerable,
@@ -19,6 +19,10 @@ class User < ApplicationRecord
 
   def moderator?
     self.status == "moderator"
+  end
+
+  def recruiter?
+    is_recruiter
   end
 
   def admin?
