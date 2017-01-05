@@ -18,7 +18,14 @@
            <td><%= apply.name %></td>
            <td><%= apply.user.email %></td>
            <% if apply.is_pass == false %>
-              <td><%= link_to("通过审核", application_admin_apply_path(apply), :method => :post, :class => "btn btn-xs btn-default") %></td>
+              <td>
+                <% if apply.aasm_state == "apply_sended" %>
+                <%= link_to("审核中", passing_admin_apply_path(apply), :method => :post, :class => "btn btn-xs btn-default") %>
+                <% elsif apply.aasm_state == "apply_passing" %>
+                <%= link_to("通过审核", application_admin_apply_path(apply), :method => :post, :class => "btn btn-xs btn-default") %>
+                <%= link_to("未通过审核", failed_admin_apply_path(apply), :method => :post, :class => "btn btn-xs btn-default") %>
+                <% end %>
+              </td>
             <% end %>
          </tr>
        <% end %>

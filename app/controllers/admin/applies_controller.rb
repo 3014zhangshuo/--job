@@ -17,9 +17,20 @@ class Admin::AppliesController < ApplicationController
     redirect_to admin_applies_path
   end
 
+  def passing
+    @apply = Apply.find(params[:id])
+    @apply.passing!
+  end
+
+  def failed
+    @apply = Apply.find(params[:id])
+    @apply.failed!
+  end
+
   def application
     @apply = Apply.find(params[:id])
     @apply.is_pass = true
+    @apply.passed!
     @apply.save
     @apply.user.is_recruiter = true
     @apply.user.status = "user"
