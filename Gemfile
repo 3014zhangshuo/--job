@@ -36,6 +36,8 @@ gem "devise"
 gem "simple_form"
 gem 'carrierwave'
 gem 'cancancan', '~> 1.10'
+#gem "annotate"
+gem "awesome_rails_console"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

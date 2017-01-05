@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170105010047) do
+ActiveRecord::Schema.define(version: 20170105021908) do
 
   create_table "applies", force: :cascade do |t|
     t.string   "name"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20170105010047) do
     t.datetime "updated_at",                             null: false
     t.integer  "status"
     t.boolean  "is_admin",               default: false
+    t.boolean  "is_recruiter",           default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
