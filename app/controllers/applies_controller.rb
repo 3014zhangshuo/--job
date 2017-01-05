@@ -13,7 +13,7 @@ class AppliesController < ApplicationController
     if @apply.save
       if params[:photos] != nil
          params[:photos]['avatar'].each do |a|
-         @photo = @product.photoss.create(:avatar => a)
+         @photo = @apply.photos.create(:avatar => a)
        end
      end
       send_notification(current_user.id,@user.id,@apply)

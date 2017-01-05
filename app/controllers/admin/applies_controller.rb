@@ -9,6 +9,7 @@ class Admin::AppliesController < ApplicationController
 
   def show
     @apply = Apply.find(params[:id])
+    @photos = @apply.photos.all
   end
 
   def destroy
