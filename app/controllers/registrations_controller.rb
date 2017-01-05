@@ -11,7 +11,7 @@ class RegistrationsController < Devise::RegistrationsController
  def after_sign_up_path_for(resource)
      if params[:status] = "admin"
        company_works_path
-     elsif params[:status] = "user"
+     elsif params[:status] = "moderator"
       root_path
      end
    end
