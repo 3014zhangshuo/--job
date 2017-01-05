@@ -1,6 +1,7 @@
 class Admin::AppliesController < ApplicationController
   before_filter :require_is_admin
   before_action :authenticate_user!
+  before_action :get_notification
   layout "admin"
   def index
     @applies = Apply.all
@@ -18,9 +19,12 @@ class Admin::AppliesController < ApplicationController
 
   def application
     @apply = Apply.find(params[:id])
+    @apply.is_pass = true
+    @apply.save
     @apply.user.is_recruiter = true
     @apply.user.save
-    send_notification(current_user.id,@apply.user.id,@apply)
+    @pass = @apply.user
+    send_notification(current_user.id,@apply.user.id,@pass)
     redirect_to :back
   end
 

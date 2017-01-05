@@ -14,13 +14,11 @@
      <tbody>
        <% @applies.each do |apply| %>
          <tr>
-           <td><%= apply.id %></td>
+           <td><%= link_to apply.id, admin_apply_path(apply) %></td>
            <td><%= apply.name %></td>
            <td><%= apply.user.email %></td>
-           <% if work.is_hidden %>
-              <td><%= link_to("Publish", publish_admin_work_path(work), :method => :post, :class => "btn btn-xs btn-default") %></td>
-            <% else %>
-              <td><%= link_to("Hide", hide_admin_work_path(work), :method => :post,  :class => "btn btn-xs btn-default") %></td>
+           <% if apply.is_pass == false %>
+              <td><%= link_to("通过审核", application_admin_apply_path(apply), :method => :post, :class => "btn btn-xs btn-default") %></td>
             <% end %>
          </tr>
        <% end %>

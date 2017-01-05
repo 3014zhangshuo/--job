@@ -1,4 +1,5 @@
 class NotificationsController < ApplicationController
+  before_action :get_notification
   def redirect_notification
     @notification = Notification.find_by_id(params[:id])
 

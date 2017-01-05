@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170105024908) do
+ActiveRecord::Schema.define(version: 20170105025801) do
 
   create_table "applies", force: :cascade do |t|
     t.string   "name"
@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 20170105024908) do
   end
 
   create_table "notifications", force: :cascade do |t|
-    t.string   "name"
     t.integer  "notifiable_id"
     t.string   "notifiable_type"
     t.datetime "created_at",      null: false

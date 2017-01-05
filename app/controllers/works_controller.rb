@@ -1,5 +1,5 @@
 class WorksController < ApplicationController
-
+before_action :get_notification
   def index
     @works = case params[:order]
            when 'by_lower_bound'

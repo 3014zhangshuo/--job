@@ -14,7 +14,6 @@
                 <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 layad">
                     <ul class="nav nav-tabs" role="tablist" >
 
-
 												<% if current_page?(admin_users_path) %>
 													<li class="nav-item active" role="presentation"><%= link_to("用户", admin_users_path) %></li>
 												<% else %>
@@ -26,6 +25,12 @@
 												<% else %>
 													<li class="nav-item" role="presentation"><%= link_to("职位", admin_works_path) %></li>
 												<% end  %>
+
+                        <% if current_page?(admin_applies_path) %>
+                          <li class="nav-item active" role="presentation"><%= link_to("申请", admin_applies_path) %></li>
+                        <% else %>
+                          <li class="nav-item" role="presentation"><%= link_to("申请", admin_applies_path) %></li>
+                        <% end  %>
 
                     </ul>
                 </div>

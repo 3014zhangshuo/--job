@@ -1,6 +1,6 @@
 class ResumesController < ApplicationController
   before_action :authenticate_user!
-
+before_action :get_notification
   def new
     @work = Work.find(params[:work_id])
     @resume = Resume.new

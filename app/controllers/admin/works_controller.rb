@@ -1,6 +1,7 @@
 class Admin::WorksController < ApplicationController
   before_filter :require_is_admin
   before_action :authenticate_user!
+  before_action :get_notification
   layout "admin"
   def index
     @works = Work.all

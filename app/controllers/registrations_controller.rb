@@ -1,4 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
+  before_action :get_notification
 
   before_filter :configure_permitted_parameters
 

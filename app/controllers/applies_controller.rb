@@ -1,4 +1,5 @@
 class AppliesController < ApplicationController
+  before_action :get_notification
   def new
     @apply = Apply.new
   end
