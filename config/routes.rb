@@ -6,6 +6,8 @@ devise_for :users, :controllers => { :registrations => "registrations" }
    resources :resumes, only: [:new, :create]
  end
 
+ resources :applys, only: [:new, :create]
+
   namespace :company do
     resources :works
   end
