@@ -1,5 +1,6 @@
 class Apply < ApplicationRecord
   belongs_to :user
+  mount_uploader :picture, ImageUploader
 
   include AASM
 

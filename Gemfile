@@ -35,6 +35,7 @@ gem "bootstrap-sass"
 gem "devise"
 gem "simple_form"
 gem 'carrierwave'
+gem 'mini_magick'
 gem 'cancancan', '~> 1.10'
 gem 'aasm'
 #gem "annotate"
