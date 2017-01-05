@@ -3,7 +3,7 @@ class Admin::AppliesController < ApplicationController
   before_action :authenticate_user!
   layout "admin"
   def index
-    @applys = Apply.all
+    @applies = Apply.all
   end
 
   def show
