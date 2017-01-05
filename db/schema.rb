@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170105025801) do
+ActiveRecord::Schema.define(version: 20170105070826) do
 
   create_table "applies", force: :cascade do |t|
     t.string   "name"
@@ -20,10 +20,12 @@ ActiveRecord::Schema.define(version: 20170105025801) do
     t.string   "web"
     t.string   "phone"
     t.string   "picture"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.integer  "user_id"
     t.boolean  "is_pass",     default: false
+    t.string   "aasm_state",  default: "apply_sended"
+    t.index ["aasm_state"], name: "index_applies_on_aasm_state"
   end
 
   create_table "notifications", force: :cascade do |t|
