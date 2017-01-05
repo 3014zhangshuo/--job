@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170105021908) do
+ActiveRecord::Schema.define(version: 20170105024908) do
 
   create_table "applies", force: :cascade do |t|
     t.string   "name"
@@ -20,9 +20,10 @@ ActiveRecord::Schema.define(version: 20170105021908) do
     t.string   "web"
     t.string   "phone"
     t.string   "picture"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.integer  "user_id"
+    t.boolean  "is_pass",     default: false
   end
 
   create_table "notifications", force: :cascade do |t|
