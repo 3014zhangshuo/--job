@@ -1,4 +1,4 @@
-class ApplysController < ApplicationController
+class AppliesController < ApplicationController
   def new
     @apply = Apply.new
   end
@@ -10,7 +10,7 @@ class ApplysController < ApplicationController
 
     if @apply.save
       send_notification(current_user.id,@user.id,@apply)
-      flash[:notice] = "成功提交履历"
+      flash[:notice] = "成功提交申请，我们会在2个工作日审核完成，请耐心等待"
       redirect_to root_path
     else
       render :new
