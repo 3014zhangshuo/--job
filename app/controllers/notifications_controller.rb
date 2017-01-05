@@ -12,6 +12,8 @@ class NotificationsController < ApplicationController
       @notification.read_at = DateTime.now
       @notification.save
       redirect_to "/"
+    else
+      redirect_to "/"
     end
   end
 
