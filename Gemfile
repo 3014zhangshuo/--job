@@ -35,6 +35,7 @@ gem "bootstrap-sass"
 gem "devise"
 gem "simple_form"
 gem 'carrierwave'
+gem 'cancancan', '~> 1.10'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
