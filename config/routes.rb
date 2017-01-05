@@ -9,7 +9,9 @@ devise_for :users, :controllers => { :registrations => "registrations" }
  resources :applies, only: [:new, :create]
 
   namespace :company do
-    resources :works
+    resources :works do
+      resources :resumes
+    end
   end
 
   resources :notifications, only: [] do

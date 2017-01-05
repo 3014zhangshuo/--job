@@ -4,7 +4,7 @@ before_action :require_recruiter
 before_action :get_notification
 
   def index
-    @works = Work.all
+    @works = current_user.works
   end
 
   def show
