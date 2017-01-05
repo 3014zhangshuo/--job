@@ -44,10 +44,10 @@
               <% if @photos.present? %>
                 <% @photos.each_with_index do |p, index| %>
                  <% if index == 0 %>
-                 <%= image_tag p.avatar.thumb.url %>
+                 <%= image_tag p.avatar.thumb.url,style: "height:200px;width:400px;" %>
                  <div style="letter-spacing: -8px">
                  <% else %>
-                 <%= image_tag p.avatar.thumb.url %>
+                 <%= image_tag p.avatar.thumb.url,style: "height:200px;width:400px;" %>
                  <% end %>
                 <% end %>
                 </div>
