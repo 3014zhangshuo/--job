@@ -30,13 +30,17 @@
     <hr>
     <%= simple_form_for @apply do |f| %>
     <div class="form-group">
-        <%= f.input :name, input_html: { class: "form-control"} %>
-        <%= f.input :description, inpuut_html: { class: "form-control"} %>
+        <%= f.input :name, input_html: { class: "form-control"}, :label => "公司名称"%>
+        <%= f.input :description, inpuut_html: { class: "form-control"}, :label => "公司详细介绍" %>
         <%= f.input :start, :label => "成立时间" %>
         <%= f.input :number, :label => "成员人数" %>
-        <%= f.input :web %>
-        <%= f.input :phone %>
-        <%= f.input :picture, as: :file %>
+        <%= f.input :web, :label => "公司官网" %>
+        <%= f.input :phone, :label => "公司电话" %>
+        <%= f.input :picture, as: :file, :label => "营业执照" %>
+    <div class="group">
+    <%= f.label "公司照片" %><br>
+    <%= f.file_field :avatar, :multiple => true, name: "photos[avatar][]" %>
+  </div>
     </div>
     <%= f.submit "Sumbit", class: "btn btn-primary", data: { disable_with: "Submiting..." } %>
     <% end %>

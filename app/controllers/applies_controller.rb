@@ -2,6 +2,7 @@ class AppliesController < ApplicationController
   before_action :get_notification
   def new
     @apply = Apply.new
+    @photo = @apply.photos.build
   end
 
   def create
@@ -10,6 +11,11 @@ class AppliesController < ApplicationController
     @apply.user = current_user
 
     if @apply.save
+      if params[:photos] != nil
+         params[:photos]['avatar'].each do |a|
+         @photo = @product.photoss.create(:avatar => a)
+       end
+     end
       send_notification(current_user.id,@user.id,@apply)
       flash[:notice] = "成功提交申请，我们会在2个工作日审核完成，请耐心等待"
       redirect_to new_apply_path

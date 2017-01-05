@@ -1,6 +1,8 @@
 class Apply < ApplicationRecord
   belongs_to :user
   mount_uploader :picture, ImageUploader
+  has_many :photos
+  accepts_nested_attributes_for :photos
 
   include AASM
 
