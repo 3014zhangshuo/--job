@@ -47,8 +47,8 @@
                     <ul class="dropdown-menu">
                         <% if can? :create, Work %>
                         <li> <%= link_to("公司后台", company_works_path)  %></li>
-                        <% end %>
                         <ul class="divider"></ul>
+                        <% end %>
                         <li> <%= link_to("登出", destroy_user_session_path, method: :delete) %> </li>
                     </ul>
                   </li>
