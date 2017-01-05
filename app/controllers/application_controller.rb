@@ -13,6 +13,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def require_recruiter
+    if !current_user.recruiter?
+      flash[:alert] = 'You are not recruiter'
+      redirect_to root_path
+    end
+  end
+
   def require_is_admin
     if !current_user.admin?
       flash[:alert] = 'You are not admin'
