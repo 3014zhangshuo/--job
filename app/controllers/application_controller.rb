@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
     if current_user && current_user.status == "admin"
       company_works_path
     elsif current_user && current_user.status == "moderator"
-     new_apply_path
+     new_applies_path
    else
      root_path
     end

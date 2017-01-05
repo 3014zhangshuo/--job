@@ -1,2 +1,0 @@
-class ApplysController < ApplicationController
-end

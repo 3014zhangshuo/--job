@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :works
   has_many :notifications
   has_many :resumes
+  has_one :apply
 
   def admin?
    is_admin

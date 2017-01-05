@@ -6,13 +6,13 @@ devise_for :users, :controllers => { :registrations => "registrations" }
    resources :resumes, only: [:new, :create]
  end
 
- resources :applys, only: [:new, :create]
+ resources :applies, only: [:new, :create]
 
   namespace :company do
     resources :works
   end
 
-  resources :notifications do
+  resources :notifications, only: [] do
     member do
       get :redirect_notification
     end
