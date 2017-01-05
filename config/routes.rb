@@ -19,6 +19,11 @@ devise_for :users, :controllers => { :registrations => "registrations" }
   end
 
   namespace :admin do
+    resources :applies, only: [:index, :show, :destroy] do
+      member do
+        post :application
+      end
+    end
     resources :works do
       member do
         post :publish
