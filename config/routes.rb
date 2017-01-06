@@ -3,13 +3,14 @@ Rails.application.routes.draw do
 devise_for :users, :controllers => { :registrations => "registrations" }
 
 resources :conversations, only: [:index, :show, :destroy] do
- member do
-   post :reply
- end
+     member do
+       post :reply
+       post :restore
+     end
 end
 
  resources :messages, only: [:new, :create]
- 
+
  resources :works, only: [:show, :index] do
    resources :resumes, only: [:new, :create]
  end

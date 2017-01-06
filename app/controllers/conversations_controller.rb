@@ -3,12 +3,29 @@ class ConversationsController < ApplicationController
   before_action :get_mailbox
   before_action :get_conversation, except: [:index]
 
-
   def index
-    @conversations = @mailbox.inbox
+    if params[:box].eql? "inbox"
+      @conversations = @mailbox.inbox
+    elsif params[:box].eql? "sent"
+      @conversations = @mailbox.sentbox
+    else
+      @conversations = @mailbox.trash
+    end
   end
 
   def show
+  end
+
+  def destroy
+    @conversation.move_to_trash(current_user)
+    flash[:success] = '这个对话已经被丢进垃圾桶了'
+    redirect_to conversations_path
+  end
+
+  def restore
+    @conversation.untrash(current_user)
+    flash[:success] = '对话被还原'
+    redirect_to conversations_path
   end
 
   def reply

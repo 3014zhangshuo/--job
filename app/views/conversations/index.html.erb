@@ -1,5 +1,14 @@
 <h3>你的对话</h3>
 <p><%= link_to '开始对话', new_message_path, class: 'btn btn-lg btn-primary' %></p>
+<div class="row">
+  <div class="col-sm-3">
+    <ul class="nav nav-pills nav-stacked">
+      <%= mailbox_section 'inbox', params[:box] %>
+      <%= mailbox_section 'sent', params[:box] %>
+      <%= mailbox_section 'trash', params[:box]  %>
+    </ul>
+  </div>
+
 <ul class="list-group">
   <%= render partial: 'conversations/conversation', collection: @conversations %>
 </ul>
