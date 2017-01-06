@@ -42,6 +42,12 @@ class ConversationsController < ApplicationController
     redirect_to conversations_path
   end
 
+  def mark_as_read
+    @conversation.mark_as_read(current_user)
+    flash[:success] = '对话标记为已读'
+    redirect_to conversations_path
+  end
+
   private
 
     def get_mailbox
