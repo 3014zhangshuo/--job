@@ -39,5 +39,14 @@ class ApplicationController < ActionController::Base
  def send_notification(trigger,recipient,notifiable)
    Notification.create(trigger_id: trigger,recipient_id: recipient,notifiable_id: notifiable.id,notifiable_type: notifiable.class)
  end
+#资料查找不见回传的错误信息
+ rescue_from ActiveRecord::RecordNotFound do
+   flash[:warning] = '资料查找不见'
+   redirect_back_or root_path
+ end
+
+ def redirect_back_or(path)
+   redirect_to request.referer || path
+ end
 
 end
