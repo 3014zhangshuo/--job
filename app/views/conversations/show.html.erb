@@ -6,7 +6,7 @@
       <% @conversation.receipts_for(current_user).each do |receipt| %>
         <% message = receipt.message %>
 
-        <%= message.sender.name %>
+        <%= message.sender.email %>
           says at <%= message.created_at.strftime("%F %T") %>
         <%= message.body %>
       <% end %>
