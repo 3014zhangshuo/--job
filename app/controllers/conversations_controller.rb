@@ -11,6 +11,12 @@ class ConversationsController < ApplicationController
   def show
   end
 
+  def reply
+    current_user.reply_to_conversation(@conversation, params[:body])
+    flash[:success] = '您的回信已出发'
+    redirect_to conversation_path(@conversation)
+  end
+
   private
 
     def get_mailbox
