@@ -16,9 +16,23 @@ class ConversationsController < ApplicationController
   def show
   end
 
+  def reply
+    current_user.reply_to_conversation(@conversation, params[:body])
+    flash[:success] = '您的回信已出发'
+    redirect_to conversation_path(@conversation)
+  end
+
   def destroy
     @conversation.move_to_trash(current_user)
     flash[:success] = '这个对话已经被丢进垃圾桶了'
+    redirect_to conversations_path
+  end
+
+  def empty_trash
+    @mailbox.trash.each do |conversation|
+      conversation.receipts_for(current_user).update_all(deleted: true)
+    end
+    flash[:success] = '垃圾桶已经被清空'
     redirect_to conversations_path
   end
 
@@ -26,12 +40,6 @@ class ConversationsController < ApplicationController
     @conversation.untrash(current_user)
     flash[:success] = '对话被还原'
     redirect_to conversations_path
-  end
-
-  def reply
-    current_user.reply_to_conversation(@conversation, params[:body])
-    flash[:success] = '您的回信已出发'
-    redirect_to conversation_path(@conversation)
   end
 
   private
