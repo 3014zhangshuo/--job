@@ -1,5 +1,5 @@
-<h3>Your Conversations</h3>
-
+<h3>你的对话</h3>
+<p><%= link_to '开始对话', new_message_path, class: 'btn btn-lg btn-primary' %></p>
 <ul class="list-group">
   <%= render partial: 'conversations/conversation', collection: @conversations %>
 </ul>
