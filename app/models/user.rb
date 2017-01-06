@@ -13,8 +13,13 @@ class User < ApplicationRecord
   has_many :notifications
   has_many :resumes
   has_one :apply
+
   acts_as_messageable
-  
+
+  def mailboxer_email(object)
+    email
+  end
+
   def role?(role_name)
     role == role_name
   end
