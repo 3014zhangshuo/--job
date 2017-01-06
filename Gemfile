@@ -39,7 +39,7 @@ gem 'mini_magick'
 gem 'cancancan', '~> 1.10'
 gem 'aasm'
 gem 'mailboxer'
-#gem 'chosen-rails'
+gem 'chosen-rails'
 #gem "annotate"
 gem "awesome_rails_console"
 # Use Capistrano for deployment
