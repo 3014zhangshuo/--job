@@ -13,6 +13,8 @@ resources :conversations, only: [:index, :show, :destroy] do
      end
 end
 
+ resources :users, only: [:index]
+
  resources :messages, only: [:new, :create]
 
  resources :works, only: [:show, :index] do
