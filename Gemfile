@@ -38,6 +38,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'cancancan', '~> 1.10'
 gem 'aasm'
+gem 'mailboxer'
 #gem "annotate"
 gem "awesome_rails_console"
 # Use Capistrano for deployment
