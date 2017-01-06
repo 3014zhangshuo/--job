@@ -1,18 +1,27 @@
-<h3>你的对话</h3>
-<p><%= link_to '开始对话', new_message_path, class: 'btn btn-lg btn-primary' %></p>
-<li><%= link_to 'Users', users_path %></li>
 
-  <div class="group">
+
+<% page_header "你的对话" %>
+
+<p><%= link_to 'Start conversation', new_message_path, class: 'btn btn-lg btn-primary' %></p>
+<p><%= link_to 'Users', users_path %><p>
+<div class="row">
+  <div class="col-sm-3">
     <ul class="nav nav-pills nav-stacked">
       <%= mailbox_section 'inbox', params[:box] %>
       <%= mailbox_section 'sent', params[:box] %>
-      <%= mailbox_section 'trash', params[:box]  %>
+      <%= mailbox_section 'trash', params[:box] %>
     </ul>
   </div>
-  <% if params[:box] == 'trash' %>
-    <p><%= link_to '清空垃圾箱', empty_trash_conversations_path, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></p>
-  <% end %>
 
-<ul class="list-group">
-  <%= render partial: 'conversations/conversation', collection: @conversations %>
-</ul>
+  <div class="col-sm-9">
+    <% if params[:box] == 'trash' %>
+     <p><%= link_to '清空垃圾箱', empty_trash_conversations_path, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></p>
+   <% end %>
+
+    <ul class="list-group">
+      <%= render partial: 'conversations/conversation', collection: @conversations %>
+    </ul>
+
+    <%= paginate @conversations %>
+  </div>
+</div>
