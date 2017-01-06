@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
 devise_for :users, :controllers => { :registrations => "registrations" }
 
+ resources :conversations, only: [:index, :show, :destroy]  
+
  resources :works, only: [:show, :index] do
    resources :resumes, only: [:new, :create]
  end
