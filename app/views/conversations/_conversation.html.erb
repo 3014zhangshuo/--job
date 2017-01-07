@@ -7,7 +7,7 @@
     <% else %>
       <%= link_to '丢进垃圾桶', conversation_path(conversation), class: 'btn btn-xs btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
         <% if conversation.is_read?(current_user) %>
-          <%= link_to 'Mark as read', mark_as_read_conversation_path(conversation), class: 'btn btn-xs btn-info', method: :post %>
+          <%#= link_to 'Mark as read', mark_as_read_conversation_path(conversation), class: 'btn btn-xs btn-info', method: :post %>
         <% end %>
     <% end %>
   </div>
