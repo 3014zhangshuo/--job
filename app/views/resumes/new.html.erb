@@ -1,0 +1,9 @@
+<h3> 投交履历到 <%= @work.title %> </h3>
+
+<hr>
+
+<%= simple_form_for [@work, @resume] do |f| %>
+  <%= f.input :content %>
+  <%= f.input :attachment %>
+  <%= f.submit "送出" %>
+<% end %>

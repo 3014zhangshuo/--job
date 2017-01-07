@@ -1,0 +1,38 @@
+
+<div class="container">
+<div class="row">
+<div class="col-md-10 col-md-offset-1">
+  <div class="group">
+    <%= link_to("加添职缺", new_company_work_path, class: "btn btn-primary pull-right") %>
+  </div>
+  <div class="group" style="margin-top:50px;">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <td>编号</td>
+        <td>职缺</td>
+        <td>职缺介绍</td>
+        <td>收到简历数量</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @works.each do |work| %>
+        <tr>
+          <% n =+ 1 %>
+          <td><%= work.id %></td>
+          <td><%= link_to(work.title, company_work_path(work)) %></td>
+          <td><%= work.description %></td>
+          <td> <%= link_to(work.resumes.count, company_work_resumes_path(work)) %> </td>
+          <td>
+              <%= link_to("编辑", edit_company_work_path(work), class: "btn btn-sm btn-default")%>
+              <%= link_to("删除", company_work_path(work),    class: "btn btn-sm btn-default",
+                          method: :delete, data: { confirm: "Are you sure?" } )%>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+</div>
+</div>
+</div>

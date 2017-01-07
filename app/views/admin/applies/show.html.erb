@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2" style="margin-top:80px;">
+     <table class="table table-striped">
+
+         <tr>
+           <td>公司名称</td>
+           <td><%= @apply.name %></td>
+         </tr>
+         <tr>
+           <td>详细介绍</td>
+           <td><%= @apply.description %></td>
+         </tr>
+         <tr>
+           <td>成立时间</td>
+           <td><%= @apply.start %></td>
+         </tr>
+         <tr>
+           <td>规模人数</td>
+           <td><%= @apply.number %></td>
+         </tr>
+         <tr>
+           <td>官方网址</td>
+           <td><%= @apply.web %></td>
+         </tr>
+         <tr>
+           <td>可核实电话</td>
+           <td><%= @apply.phone %></td>
+         </tr>
+         <tr>
+           <td>营业执照</td>
+           <td><% if @apply.picture.present? %>
+             <div class="group">
+                <%= image_tag(@apply.picture.thumb.url, style: "height:200px;width:400px;") %>
+             </div>
+              <% else %>
+                  没有上传执照
+              <% end %>
+           </td>
+         </tr>
+         <tr>
+           <td>公司照片</td>
+            <td>
+              <% if @photos.present? %>
+                <% @photos.each_with_index do |p, index| %>
+                 <% if index == 0 %>
+                 <%= image_tag p.avatar.thumb.url,style: "height:200px;width:400px;" %>
+                 <div style="letter-spacing: -8px">
+                 <% else %>
+                 <%= image_tag p.avatar.thumb.url,style: "height:200px;width:400px;" %>
+                 <% end %>
+                <% end %>
+                </div>
+              <% else %>
+               <%= image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail") %>
+              <% end %>
+            </td>
+         </tr>
+
+     </table>
+    </div>
+  </div>
+</div>

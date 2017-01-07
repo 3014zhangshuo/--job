@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h3 style="text-align:center">发送消息</h3>
+    <%= form_tag messages_path, method: :post do %>
+  <div class="form-group">
+    <%= label_tag '主题' %>
+    <%= text_field_tag 'message[subject]', nil, class: 'form-control', required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag '详细消息' %>
+    <%= text_area_tag 'message[body]', nil, cols: 3, class: 'form-control', required: true %>
+  </div>
+
+  <div class="form-group">
+  <%= label_tag '选择发送对象' %>
+  <%= select_tag 'recipients', recipients_options(@chosen_recipient), multiple: true, class: 'form-control chosen-it' %>
+</div>
+
+  <%= submit_tag 'Send', class: 'btn btn-primary' %>
+<% end %>
+</div>
+</div>
+</div>

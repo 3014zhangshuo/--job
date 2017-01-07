@@ -1,0 +1,51 @@
+<% if current_user.apply.present? %>
+<% if @apply.aasm_state == "apply_sended" %>
+<div class="progress" style="margin-left:50px; margin-right:50px">
+  <div class="progress-bar progress-bar-success active" role="progressbar"
+  aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" style="width:33%">
+    提交完毕
+  </div>
+</div>
+<% elsif @apply.aasm_state == "apply_passing" %>
+<div class="progress" style="margin-left:50px; margin-right:50px">
+  <div class="progress-bar progress-bar-success active" role="progressbar"
+  aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" style="width:66%">
+    审核中
+  </div>
+</div>
+<% else %>
+<div class="progress" style="margin-left:50px; margin-right:50px">
+  <div class="progress-bar progress-bar-success active" role="progressbar"
+  aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+    审核通过
+  </div>
+</div>
+<% end %>
+<% end %>
+<div class= "row" >
+<div class="col-md-4 col-md-offset-4">
+    <% if current_user.apply == nil %>
+    <h2 style="text-align-center">提交申请</h2>
+
+    <hr>
+    <%= simple_form_for @apply do |f| %>
+    <div class="form-group">
+        <%= f.input :name, input_html: { class: "form-control"}, :label => "公司名称"%>
+        <%= f.input :description, inpuut_html: { class: "form-control"}, :label => "公司详细介绍" %>
+        <%= f.input :start, :label => "成立时间" %>
+        <%= f.input :number, :label => "成员人数" %>
+        <%= f.input :web, :label => "公司官网" %>
+        <%= f.input :phone, :label => "公司电话" %>
+        <%= f.input :picture, as: :file, :label => "营业执照" %>
+    <div class="group">
+    <%= f.label "公司照片" %><br>
+    <%= f.file_field :avatar, :multiple => true, name: "photos[avatar][]" %>
+  </div>
+    </div>
+    <%= f.submit "Sumbit", class: "btn btn-primary", data: { disable_with: "Submiting..." } %>
+    <% end %>
+    <% else %>
+    <h2>申请已经提交，请耐心等待</h2>
+    <% end %>
+</div>
+</div>
