@@ -2,7 +2,7 @@
 lock "3.7.1"
 
 set :application, "job"
-set :repo_url, "github.com/3014zhangshuo/--job.git"
+set :repo_url, "https://github.com/3014zhangshuo/aipinwang.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
